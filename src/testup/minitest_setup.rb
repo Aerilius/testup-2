@@ -32,12 +32,12 @@ module Minitest
     # output to the debugger before the test is run.
     # TODO(thomthom): Review if this can be done without overriding the method.
     unless method_defined?(:testup_run_one_method)
-      alias :testup_run_one_method :run_one_method
       def run_one_method(*args)
         klass, method_name, reporter = args
         TestUp::Debugger.output("Running: #{klass.name}.#{method_name}")
         self.testup_run_one_method(*args)
       end
+      alias :testup_run_one_method :run_one_method
     end
 
   end # class << self
