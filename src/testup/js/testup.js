@@ -21,7 +21,7 @@ var TestUp = function() {
 
 
     init :  function(config) {
-      debugger_ = config.debugger;
+      debugger_ = config['debugger'];
       path_ = config.path;
       init_error_catching();
       init_css(path_);
