@@ -57,7 +57,7 @@ module TestUp
   def self.get_default
     # TODO: Detect common editor and make a 'guess' for default choice.
     if RUBY_PLATFORM =~ /mswin|mingw/
-      program_files = File.expand_path(ENV['ProgramW6432'])
+      program_files = File.expand_path(ENV['ProgramW6432']||ENV['ProgramFiles']) rescue return []
       application = File.join(program_files, 'Sublime Text 3','sublime_text.exe')
     else
       # OSX
